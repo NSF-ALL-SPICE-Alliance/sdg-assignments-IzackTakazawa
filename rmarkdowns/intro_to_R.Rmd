@@ -94,7 +94,7 @@ Let's practice creating some variables:
 
 1. my_name
 ```{r}
-my_name <- "Victoria DelaCruz" # character strings are stored within quotations
+my_name <- "Izack Takazawa" # character strings are stored within quotations
 my_name # run the name of your variable to see the output
 ```
 
