@@ -298,6 +298,13 @@ Using the `select()` function, select two new SDG goal scores. Assign it to a va
 
 Similarly to select, `filter()` can be used to extract specific rows. Let's try this out by filtering our data for those within the Oceania region.
 
+```{r}
+SDG_scores <- sdr_data %>% 
+  select(goal_5_score, goal_6_score)
+
+```
+
+
 In order to do this, we write out the column name "regions_used_for_the_sdr" followed by == and then "Oceania". 
 
 ```{r}
@@ -313,6 +320,12 @@ Notes:
 
 #### <span style="color: red;">Challenge 3</span>
 Using the `filter()` function, filter for another region other than Oceania. Assign it to a variable named `new_region`. 
+
+```{r}
+new_region <- sdr_data %>% 
+  filter(regions_used_for_the_sdr == "OECD")
+
+```
 
 **Important**
 
