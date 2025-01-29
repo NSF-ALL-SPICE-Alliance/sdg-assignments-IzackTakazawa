@@ -32,7 +32,7 @@ library(vembedr)
 ```
 
 ```{r, echo=FALSE}
-vembedr::embed_url("https://www.youtube.com/watch?v=XS_zXa0prMw")
+#vembedr::embed_url("https://www.youtube.com/watch?v=XS_zXa0prMw")
 ```
 
 Read in 2023 Sustainable Development Data with *read_csv()* and *here()*
@@ -136,16 +136,16 @@ ggplot(data = sdr_data, aes(x= goal_3_score, y = goal_4_score, color = regions_u
 
 ```{r}
 
-goal_4_histogram <- ggplot(sdr_data, aes(x = goal_4_score, fill=regions_used_for_the_sdr)) +
-  geom_histogram() +
+goal_3_vs_goal_4_scatter <- ggplot(sdr_data, aes(x= goal_3_score, y = goal_4_score, color = regions_used_for_the_sdr)) +
+  geom_point() +
   theme_minimal() +
   scale_fill_viridis_d() +
-  labs(title = "Distributions of SDG 4 Scores",
-       x = "SDG 4 Score",
-       y = "Number of Countries",
-       fill = "Region")
+  labs(title = "The Relationship Between Goal 3 vs Goal 4 Scores",
+       x = "SDG 3 Score",
+       y = "SDG 4 Score",
+       color = "Region")
 
-ggplotly(goal_4_histogram)
+ggplotly(goal_3_vs_goal_4_scatter)
 ```
 
 ### Creating interactive maps with `leaflet`
