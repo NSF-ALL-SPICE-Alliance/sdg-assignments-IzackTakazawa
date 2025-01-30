@@ -28,7 +28,7 @@ library(vembedr)
 ```
 
 ```{r, echo=FALSE}
-embed_url("https://www.youtube.com/watch?v=Gzgj73UQ__A")
+#embed_url("https://www.youtube.com/watch?v=Gzgj73UQ__A")
 ```
 
 Read in 2023 Sustainable Development Data with *read_csv()* and *here()*
@@ -202,3 +202,33 @@ ggplot(sdr_data, aes(x = goal_12_score,
         -   are there any points that don't follow the trend (outliers)
 
             -   which country(s) are outliers?
+
+```{r}
+library(plotly)
+```
+
+```{r}
+
+goal_4_vs_goal_5_linear_reg <- ggplot(sdr_data, aes(x = goal_4_score, 
+                     y = goal_5_score, label = country)) +
+  geom_point() +
+  geom_smooth() +
+  stat_cor() +
+  theme_minimal() 
+  
+  labs(title = "The Relationship Between Goal 4 vs Goal 5 Scores",
+       x = "SDG 4 Score",
+       y = "SDG 5 Score")
+
+ggplotly(goal_4_vs_goal_5_linear_reg)
+```
+
+There's a few takeaways here
+
+-   The relationship between Goal 4 (Quality Education) and Goal 5 (Gender Equality) scores is that higher education quality tends to support gender equality.
+
+-   This visualization may suggest the countries with strong educational systems often promote more gender equality within there communities providing equal opportunities for both genders in education, society, workforce, etc.
+
+-   When looking at the plot, a few countries stand out. Yemen, Maldives, Somalia, Oman, and Guinea all are below the curve. Yemen, showing the lowest goal 5 (gender equality) despite having a goal 4 score more than three times that of goal 5, showing their quality of education isn't the worse but despite the numbers they continue to have a high percentage of gender inequality.
+
+-   On the other hand, South Sudan and Mali have really low scores of goal 4 (quality education) but are both above the curve and score high for goal 5 (gender equality)
